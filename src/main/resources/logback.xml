@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Set root logger to INFO -->
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+    <!-- Set specific package to INFO -->
+    <logger name="com.example.kafkaconnect" level="DEBUG"/>
+
+    <!-- Set third party loggers to WARN to reduce noise -->
+    <logger name="org.apache.kafka" level="INFO"/>
+    <logger name="org.elasticsearch" level="INFO"/>
+</configuration>

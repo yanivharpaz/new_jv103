@@ -1,0 +1,29 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: elasticsearch-sink-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      fetch-max-wait: 500
+      fetch-min-size: 1
+      max-poll-records: 500
+
+kafka:
+  topic: example-topic
+  batch:
+    size: 100
+    timeout-ms: 5000
+  
+elasticsearch:
+  hosts: localhost:9200
+  connection-timeout: 5000
+  socket-timeout: 3000
+  bulk:
+    actions: 1000
+    size-mb: 5
+    flush-interval-ms: 5000
+  retry:
+    max-attempts: 3
+    initial-interval: 1000 
